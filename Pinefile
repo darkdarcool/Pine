@@ -1,0 +1,6 @@
+{
+  "name": "dark",
+  "pines": {
+    "test": "echo 'How are you?'"
+  }
+}

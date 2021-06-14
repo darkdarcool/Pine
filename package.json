@@ -1,0 +1,20 @@
+{
+  "name": "pine",
+  "version": "1.0.0",
+  "description": "Runner",
+  "main": "index.js",
+  "scripts": {
+    "test": "./pine"
+  },
+  "author": "darkdarcool30",
+  "bin": "pine",
+  "color": "always",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-shell": "^0.8.0"
+  }
+}
