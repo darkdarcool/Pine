@@ -1,3 +1,16 @@
 #!/usr/bin/env node
+var package = require("./package.json")
 var start = require("./src/index.js")
-start()
+var chalk = require("chalk")
+if (process.argv[2] == undefined) {
+  console.log(chalk.red.bold("No args found"))
+}
+else if (process.argv[2] == "-v" || process.argv[2] == "--version") {
+  console.log(package.version)
+}
+else if (process.argv[2] == "run") {
+  start()
+}
+else {
+  console.log(chalk.red.bold("No args made"))
+}

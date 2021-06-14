@@ -14,6 +14,7 @@ function getsData() {
   } // Read file
   catch {
     console.log(chalk.red.bold("Could not locate Pinefile"));
+    process.exit(0);
   }
   try {
     var data = JSON.stringify(data); // Make it valid to parsing

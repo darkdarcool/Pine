@@ -1,6 +1,6 @@
 {
-  "name": "pine",
-  "version": "0.0.1",
+  "name": "pine-cli",
+  "version": "0.0.2",
   "description": "Script runner",
   "main": "index.js",
   "scripts": {
