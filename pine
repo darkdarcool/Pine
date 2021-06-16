@@ -2,6 +2,7 @@
 var package = require("./package.json");
 var start = require("./src/index.js");
 var chalk = require("chalk")
+var exec = require('child_process').exec;
 if (process.argv[2] == undefined) {
   console.log(chalk.red.bold("No args found"))
 }
@@ -19,13 +20,28 @@ else if (process.argv[2] == "i" || process.argv[2] == "install" || process.argv[
     console.log(chalk.red.bold("No package found"))
   }
   else {
-    var exec = require('child_process').exec;
+    exec = require('child_process').exec;
     exec(`npm i ${process.argv[3]}`, function (err, stdout, stderr) { 
       if (err) {
         console.log(chalk.red.bold("Package does not exist"));
         process.exit(0);
       }
-      console.log("Installed!");
+      console.log(chalk.green.bold("Installed!"));
+    });
+  }
+}
+else if (process.argv[2] == "uninstall" || process.argv[2] == "remove") {
+  if (process.argv[3] == undefined) {
+    console.log(chalk.red.bold("No package found"))
+  }
+  else {
+    exec = require('child_process').exec;
+    exec(`npm remove ${process.argv[3]}`, function (err, stdout, stderr) { 
+      if (err) {
+        console.log(chalk.red.bold("ERROR"));
+        process.exit(0);
+      }
+      console.log(chalk.green.bold("Removed!"));
     });
   }
 }
