@@ -12,9 +12,9 @@ function makePine() {
         process.exit(0);
       }
       else {
-        console.log(chalk.blue.bold(`Running the ${process.argv[3]} pine in Pinefile '${name}'`));
+        console.log(chalk.blue.bold(`> Running the ${process.argv[3]} pine in Pinefile '${name}'`));
         var toBash = eval(`data.pines.${process.argv[3]}`);
-        console.log(chalk.blue.bold(`Running: <${toBash}>`));
+        console.log(chalk.blue.bold(`> Running: <${toBash}>`));
         console.log();
         exec(toBash, function (err, stdout, stderr) {
           if (err) {

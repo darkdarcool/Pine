@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 var package = require("./package.json");
-var exec = require('child_process').exec;
 var start = require("./src/index.js");
 var chalk = require("chalk")
 if (process.argv[2] == undefined) {
@@ -16,8 +15,20 @@ else if (process.argv[2] == "-h" || process.argv[2] == "--help") {
   console.log(chalk.yellow.bold("Just run pines!"))
 }
 else if (process.argv[2] == "i" || process.argv[2] == "install" || process.argv[2] == "add") {
-  // do stuf
+  if (process.argv[3] == undefined) {
+    console.log(chalk.red.bold("No package found"))
+  }
+  else {
+    var exec = require('child_process').exec;
+    exec(`npm i ${process.argv[3]}`, function (err, stdout, stderr) { 
+      if (err) {
+        console.log(chalk.red.bold("Package does not exist"));
+        process.exit(0);
+      }
+      console.log("Installed!");
+    });
+  }
 }
 else {
-  console.log(chalk.red.bold("No args made or found in possible args"))
+  console.log(chalk.red.bold("No args made or found in possible args"));
 }
