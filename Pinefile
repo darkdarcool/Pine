@@ -1,5 +1,9 @@
 {
   "name": "dark",
+  "version": "0.0.0",
+  "description": "Just a test",
+  "author": "darkdarcool30",
+  "entry": "./index.js",
   "pines": {
     "test": "echo 'How are you?'"
   }

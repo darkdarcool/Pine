@@ -32,6 +32,22 @@ function getsData() {
       console.log(chalk.red.bold("Pine list is empty"));
       process.exit(0);
     }
+    if (data.version == undefined) {
+      console.log(chalk.red.bold("No version found."));
+      process.exit(0)
+    }
+    if (data.description == undefined) {
+      console.log(chalk.red.bold("No descrition found"));
+      process.exit(0)
+    }
+    if (data.author == undefined) {
+      console.log(chalk.red.bold("No author found"));
+      process.exit(0)
+    }
+    if (data.entry == undefined) {
+      console.log(chalk.red.bold("No entrypoint found"));
+      process.exit(0);
+    }
     return data; // return it!
   }
   catch {

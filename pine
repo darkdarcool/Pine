@@ -3,6 +3,7 @@ var package = require("./package.json");
 var start = require("./src/index.js");
 var chalk = require("chalk")
 var exec = require('child_process').exec;
+var transpile = require('./src/pine/transpile.js')
 if (process.argv[2] == undefined) {
   console.log(chalk.red.bold("No args found"))
 }
@@ -21,7 +22,7 @@ else if (process.argv[2] == "i" || process.argv[2] == "install" || process.argv[
   }
   else {
     exec = require('child_process').exec;
-    exec(`npm i ${process.argv[3]}`, function (err, stdout, stderr) { 
+    exec(`yarn i ${process.argv[3]}`, function (err, stdout, stderr) { 
       if (err) {
         console.log(chalk.red.bold("Package does not exist"));
         process.exit(0);
@@ -36,7 +37,7 @@ else if (process.argv[2] == "uninstall" || process.argv[2] == "remove") {
   }
   else {
     exec = require('child_process').exec;
-    exec(`npm remove ${process.argv[3]}`, function (err, stdout, stderr) { 
+    exec(`yarn remove ${process.argv[3]}`, function (err, stdout, stderr) { 
       if (err) {
         console.log(chalk.red.bold("ERROR"));
         process.exit(0);
@@ -44,6 +45,9 @@ else if (process.argv[2] == "uninstall" || process.argv[2] == "remove") {
       console.log(chalk.green.bold("Removed!"));
     });
   }
+}
+else if (process.argv[2] == "transpile" || process.argv[2] == "compile") {
+  transpile();
 }
 else {
   console.log(chalk.red.bold("No args made or found in possible args"));

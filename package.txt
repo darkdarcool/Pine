@@ -1,0 +1,16 @@
+{
+  "name": "pine-cli",
+  "version": "0.0.4",
+  "description": "Script runner",
+  "main": "index.js",
+  "scripts": {
+    "test": "./pine"
+  },
+  "author": "darkdarcool30",
+  "bin": "pine",
+  "color": "always",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.1"
+  }
+}
